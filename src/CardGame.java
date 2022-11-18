@@ -2,12 +2,14 @@ import java.util.*;
 
 public class CardGame {
 
+    private final Random rand = new Random();
+
     private static ArrayList<Card> deckOfCards;
 
     public CardGame() {
         List<String> suits = Card.getValidSuits();
 
-        List<String> faceNames = Card.getValidFaceNames();
+        List<String> faceNames = Card.VALID_FACENAMES;
 
         List<Integer> values = Card.getValidValues();
 
@@ -26,22 +28,17 @@ public class CardGame {
         return deckOfCards;
     }
     public Card dealCard(){
-        Random rand = new Random();
-        Card randomCard = deckOfCards.get(rand.nextInt(52));
-        return randomCard;
-    };
+        return deckOfCards.get(rand.nextInt(52));
+    }
     public void shuffleDeck(){
         Collections.shuffle(deckOfCards);
     }
 
     // couldn't do this one very annoying tried a number of things
-    public ArrayList sortDeckInNumberOrder(){
-
+    public ArrayList<Card> sortDeckInNumberOrder(){
         Collections.sort(deckOfCards);
-
         return deckOfCards;
 
-//       deckOfCards.sort();
     }
 
 

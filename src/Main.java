@@ -1,20 +1,19 @@
 
 public class Main {
 
-    public static void main(String[] args) {
-
+    public static void playGame() {
         // cardGame class and methods
-            CardGame cardGame = new CardGame();
-            // get full deck of cards
-            cardGame.getDeckOfCards();
+        CardGame cardGame = new CardGame();
+        // get full deck of cards
+        cardGame.getDeckOfCards();
 
-            // deal random card from deck
-            cardGame.dealCard();
+        // deal random card from deck
+        cardGame.dealCard();
 
-            // shuffle deck
-            cardGame.shuffleDeck();
+        // shuffle deck
+        cardGame.shuffleDeck();
 
-            //sort all cards by values
+        //sort all cards by values
 
         System.out.println("sorted cards" + cardGame.sortDeckInNumberOrder());
 
@@ -25,6 +24,11 @@ public class Main {
         // starts Snap game with two players
         Snap multiplayerSnap = new Snap();
         multiplayerSnap.startMultiplayerGame();
+    }
+
+    public static void main(String[] args) {
+
+      playGame();
 
     }
 }

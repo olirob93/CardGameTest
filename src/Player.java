@@ -1,5 +1,5 @@
-public class Player extends Snap {
-    private String name;
+public class Player {
+    private final String name;
     private boolean turn, won;
     private Card card;
 
@@ -19,10 +19,6 @@ public class Player extends Snap {
     }
 
 
-    public boolean isWon() {
-        return won;
-    }
-
     public void setWon(boolean won) {
         this.won = won;
     }
@@ -40,14 +36,13 @@ public class Player extends Snap {
         this.card = card;
     }
 
-    public boolean checkIfPlayerWon(Card previousCard, Card card, Player player){
-        if(previousCard.getSuit() == card.getSuit()){
+    public boolean checkIfPlayerWon(Card previousCard, Card card, Player player) {
+        if (previousCard.getSuit().equals(card.getSuit())) {
             System.out.println(card);
             System.out.println("SNAPPPPP!!!");
-            System.out.println("game over "+ player.getName() +" is the winner, the Suits match " + card.getSuit());
+            System.out.println("game over " + player.getName() + " is the winner, the Suits match " + card.getSuit());
             setWon(true);
-        }
-        else {
+        } else {
             System.out.println(card);
             setWon(false);
         }

@@ -1,10 +1,14 @@
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 public class Card implements Comparable<Card> {
-    private String faceName = "", suit ="";
+    private String faceName = "", suit = "";
     private Integer values;
+
+    public static final List<String> VALID_FACENAMES =
+            Arrays.asList("2", "3", "4", "5", "6", "7", "8", "9", "10", "jack",
+                    "queen", "king", "ace");
+
 
     public Card(String faceName, String suit, Integer values) {
         setFaceName(faceName);
@@ -12,7 +16,7 @@ public class Card implements Comparable<Card> {
         setValues(values);
     }
 
-    public Card () {
+    public Card() {
 
     }
 
@@ -41,21 +45,15 @@ public class Card implements Comparable<Card> {
 
     }
 
-    public static List<String> getValidFaceNames() {
-        return Arrays.asList("2", "3", "4", "5", "6", "7", "8", "9", "10", "jack",
-                "queen", "king", "ace");
-    }
-
 
     public void setFaceName(String faceName) {
-        List<String> validFaceNames = getValidFaceNames();
         faceName = faceName.toLowerCase();
 
-        if (validFaceNames.contains(faceName))
+        if (VALID_FACENAMES.contains(faceName))
             this.faceName = faceName;
         else
             throw new IllegalArgumentException("Valid face names are: " +
-                    validFaceNames);
+                    VALID_FACENAMES);
     }
 
     public String getSuit() {
