@@ -1,9 +1,10 @@
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
-public class Card {
-        private String faceName, suit;
-        private Integer values;
+public class Card implements Comparable<Card> {
+    private String faceName = "", suit ="";
+    private Integer values;
 
     public Card(String faceName, String suit, Integer values) {
         setFaceName(faceName);
@@ -11,11 +12,10 @@ public class Card {
         setValues(values);
     }
 
-    public Card() {
-        this.faceName = "";
-        this.suit = "";
-        this.values=0;
+    public Card () {
+
     }
+
 
     public String getFaceName() {
         return faceName;
@@ -25,26 +25,25 @@ public class Card {
         return values;
     }
 
-    public static List<Integer> getValidValues(){
-            return Arrays.asList(2,3,4,5,6,7,8,9,10,11,
-                    12,13,14);
+    public static List<Integer> getValidValues() {
+        return Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+                12, 13, 14);
     }
 
-    public void setValues (Integer value){
-            List<Integer> validValues = getValidValues();
+    public void setValues(Integer value) {
+        List<Integer> validValues = getValidValues();
 
-            if(validValues.contains(value))
-                this.values = value;
-            else
-                throw new IllegalArgumentException("Valid values are: "+
-                        validValues);
+        if (validValues.contains(value))
+            this.values = value;
+        else
+            throw new IllegalArgumentException("Valid values are: " +
+                    validValues);
 
     }
 
-    public static List<String> getValidFaceNames()
-    {
-        return Arrays.asList("2","3","4","5","6","7","8","9","10","jack",
-                "queen","king","ace");
+    public static List<String> getValidFaceNames() {
+        return Arrays.asList("2", "3", "4", "5", "6", "7", "8", "9", "10", "jack",
+                "queen", "king", "ace");
     }
 
 
@@ -55,7 +54,7 @@ public class Card {
         if (validFaceNames.contains(faceName))
             this.faceName = faceName;
         else
-            throw new IllegalArgumentException("Valid face names are: "+
+            throw new IllegalArgumentException("Valid face names are: " +
                     validFaceNames);
     }
 
@@ -63,9 +62,8 @@ public class Card {
         return suit;
     }
 
-    public static List<String> getValidSuits()
-    {
-        return Arrays.asList("\u2665","\u2666","\u2663","\u2660");
+    public static List<String> getValidSuits() {
+        return Arrays.asList("\u2665", "\u2666", "\u2663", "\u2660");
     }
 
     public void setSuit(String suit) {
@@ -75,11 +73,16 @@ public class Card {
         if (validSuits.contains(suit))
             this.suit = suit;
         else
-            throw new IllegalArgumentException("valid suits are: "+ validSuits);
+            throw new IllegalArgumentException("valid suits are: " + validSuits);
     }
 
-    public String toString()
-    {
+    @Override
+    public int compareTo(Card o) {
+
+        return this.suit.compareTo(o.suit);
+    }
+
+    public String toString() {
         return String.format("%s of %s", faceName, suit);
     }
 }

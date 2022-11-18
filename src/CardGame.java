@@ -35,24 +35,13 @@ public class CardGame {
     }
 
     // couldn't do this one very annoying tried a number of things
-    public void sortDeckInNumberOrder(ArrayList<Card> deckOfCards){
-        // not sure how to do this
-        // need first thought was to loop through the deck of cards and compare it's value against the
-        //previous iteration each time but there must be a better way
+    public ArrayList sortDeckInNumberOrder(){
 
-//        ArrayList<Card> sortedArrayList = new ArrayList<>();
-//
-//        Card previousCard = new Card();
-//        for (Card card:deckOfCards
-//             ) {
-//            if(previousCard.getValues() <= card.getValues()){
-//                System.out.println("getting here");
-//                previousCard = card;
-//                sortedArrayList.add(card);
-//            }
-//            System.out.println("each card" + card);
-//        }
-//        System.out.println(sortedArrayList);
+        Collections.sort(deckOfCards);
+
+        return deckOfCards;
+
+//       deckOfCards.sort();
     }
 
 

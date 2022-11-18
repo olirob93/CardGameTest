@@ -14,6 +14,10 @@ public class Main {
             // shuffle deck
             cardGame.shuffleDeck();
 
+            //sort all cards by values
+
+        System.out.println("sorted cards" + cardGame.sortDeckInNumberOrder());
+
         //Starts Snap Game with no players
         Snap singlePlayerSnap = new Snap();
         singlePlayerSnap.startSinglePlayerGame();

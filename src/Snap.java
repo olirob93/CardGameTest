@@ -21,7 +21,8 @@ public class Snap extends CardGame {
 
     public void startSinglePlayerGame(){
         shuffleDeck();
-        Card card = new Card();
+
+        Card card = dealCard();
 
         while(!gameOver){
             Scanner takeTurn = new Scanner(System.in);
